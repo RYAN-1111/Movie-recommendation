@@ -1,0 +1,24 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore models and outputs
+ml_model/models/
+data/*.csv
+
+# Ignore MLflow artifacts
+mlruns/
+mlflow.db
+
+# Ignore environment files
+.env
+.venv/
+venv/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
