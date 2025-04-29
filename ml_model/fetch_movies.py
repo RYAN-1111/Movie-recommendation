@@ -1,8 +1,7 @@
 import requests
 import pandas as pd
 
-API_KEY = "fd30e4db582d841f5a76052b1c49eff4"
-
+API_KEY = ""
 
 def fetch_popular_movies(pages=500):  # specify how many pages you want
     movie_list = []
