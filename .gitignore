@@ -22,3 +22,10 @@ venv/
 # Ignore OS files
 .DS_Store
 Thumbs.db
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# pytest cache
+.pytest_cache/
