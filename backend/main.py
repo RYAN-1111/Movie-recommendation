@@ -7,13 +7,19 @@ from jose import JWTError, jwt
 from database import SessionLocal, engine
 from models import Base, User
 from auth import verify_password, get_password_hash, create_access_token
-
+from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import pandas as pd
 
 # ---------------- Backend Setup --------------------
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can replace "*" with ["http://127.0.0.1:5500"] for tighter security
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 Base.metadata.create_all(bind=engine)
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -77,7 +83,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
         detail="Could not validate credentials"
     )
     try:
-        payload = jwt.decode(token, "your_secret_key", algorithms=["HS256"])
+        payload = jwt.decode(token, "project_key", algorithms=["HS256"])
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception

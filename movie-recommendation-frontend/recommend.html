@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Movie Recommendations</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h2>Movie Recommendation</h2>
+  <button onclick="logout()" style="float: right;">Logout</button>
+
+  <input type="text" id="movieName" placeholder="Enter a movie name">
+  <button onclick="getRecommendations()">Get Recommendations</button>
+
+  <div id="recommendations" class="card-container"></div>
+
+  <script src="js/recommend.js"></script>
+</body>
+</html>

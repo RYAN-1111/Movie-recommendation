@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: movie-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+
+  frontend:
+    build:
+      context: ./movie-recommendation-frontend
+      dockerfile: dockerfile  # lowercase, as your file is named
+    container_name: movie-frontend
+    ports:
+      - "3000:80"
